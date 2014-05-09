@@ -1,0 +1,14 @@
+(A)
+Is there a bug with nested creates on many-to-mnay w/ via?
+
+
+(I)
+subqueries (many-to-many associations)
+
+
+(II)
+nested SELECT (projection)
+
+(III)
+remove all associations
+i.e. _.each(user.dogs, function (dog) { user.dogs.remove(dog); })
