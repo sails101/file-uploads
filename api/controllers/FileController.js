@@ -11,8 +11,18 @@ module.exports = {
 
   /**
    * `FileController.upload()`
+   *
+   * Upload file(s) to the server's disk.
    */
   upload: function (req, res) {
+
+    // e.g.
+    // 0 => infinite
+    // 240000 => 4 minutes (240,000 miliseconds)
+    // etc.
+    //
+    // Node defaults to 2 minutes.
+    res.setTimeout(0);
 
     req.file('avatar').upload(function whenDone(err, uploadedFiles) {
       if (err) return res.serverError(err);
@@ -25,8 +35,23 @@ module.exports = {
 
   /**
    * `FileController.s3upload()`
+   *
+   * Upload file(s) to an S3 bucket.
+   *
+   * NOTE:
+   * If this is a really big file, you'll want to change
+   * the TCP connection timeout.  This is demonstrated as the
+   * first line of the action below.
    */
   s3upload: function (req, res) {
+
+    // e.g.
+    // 0 => infinite
+    // 240000 => 4 minutes (240,000 miliseconds)
+    // etc.
+    //
+    // Node defaults to 2 minutes.
+    res.setTimeout(0);
 
     var blobAdapter = require('skipper-s3')({
       bucket: process.env.BUCKET,
@@ -49,6 +74,8 @@ module.exports = {
 
   /**
    * FileController.download()
+   *
+   * Download a file from the server's disk.
    */
   download: function (req, res) {
     require('fs').createReadStream(req.param('path'))
