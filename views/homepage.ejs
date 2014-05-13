@@ -21,12 +21,14 @@ setTimeout(function sunrise () {
         <ul class="getting-started">
             <li>
                 <form action="file/upload" method="post" enctype="multipart/form-data">
-                    <label>Please upload your avatar:</label>
-                    <input type="file" name="avatar"/>
-                    <br/>
                     <label>Some other metadata</label>
                     <input type="text" name="foo" placeholder="some other metadata"/>
                     <input type="submit"/>
+                    <br/>
+                    <label>Please upload your avatar:</label>
+                    <input type="file" name="avatar"/>
+                    <br/>
+                    <blockquote>note that text parameters <strong>must come before</strong> file parameters in the form!</blockquote>
                 </form>
             </li>
         </ul>
