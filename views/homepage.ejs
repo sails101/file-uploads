@@ -19,37 +19,18 @@ setTimeout(function sunrise () {
         <!-- <h1>Getting started</h1>
         <p>Don't worry, we've got your back.</p> -->
         <ul class="getting-started">
-            <li class="clearfix">
-                <div class="step">
-                    <div class="sprite one"></div>
-                    <h3>Generate a REST API.</h3>
-                    <p>
-                        Run <code>sails generate api user</code>.  This will create two files: a <a href="http://links.sailsjs.org/docs/models">model</a> <code class="pocket">api/models/User.js</code> and a <a href="http://links.sailsjs.org/docs/controllers">controller</a><code class="pocket">api/controllers/UserController.js</code>.
-                    </p>
-                </div>
-            </li>
-            <li class="clearfix">
-                <div class="step">
-                    <div class="sprite two"></div>
-                    <h3>
-                        Lift your app.
-                    </h3>
-                    <p>
-                        Run <code>sails lift</code> to start up your app server.  If you visit <a target="_blank" href="http://localhost:1337/user"><code>http://localhost:1337/user</code></a> in your browser, you'll see a <a href="http://links.sailsjs.org/docs/blueprints">WebSocket-compatible</a> user API.
-                    </p>
-                </div>
-            </li>
-            <li class="clearfix">
-                <div class="step">
-                    <div class="sprite three"></div>
-                    <h3>
-                        Dive in.
-                    </h3>
-                    <p>Blueprints are just the beginning.  You'll probably also want to learn how to customize your app's <a href="http://links.sailsjs.org/docs/routes">routes</a>, set up <a href="http://links.sailsjs.org/docs/policies">security policies</a>, configure your <a href="http://links.sailsjs.org/docs/config/connections">data sources</a>, and build custom <a target="_blank" href="http://links.sailsjs.org/docs/controllers">controller actions</a>. For more help getting started, check out the links on this page.</p>
-
-                </div>
+            <li>
+                <form action="file/upload" method="post" enctype="multipart/form-data">
+                    <label>Please upload your avatar:</label>
+                    <input type="file" name="avatar"/>
+                    <br/>
+                    <label>Some other metadata</label>
+                    <input type="text" name="foo" placeholder="some other metadata"/>
+                    <input type="submit"/>
+                </form>
             </li>
         </ul>
+
         <div class="links">
             <!-- <h3>Links</h3> -->
             <ul class="link-list">
