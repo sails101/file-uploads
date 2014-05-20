@@ -1,8 +1,7 @@
 {
-  "name": "uploads",
-  "private": true,
+  "name": "sails101-file-uploads",
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "How do I upload files in Sails?",
   "keywords": [],
   "dependencies": {
     "sails": "~0.10.0-rc7",
@@ -31,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikermcneil/uploads.git"
+    "url": "git://github.com/sails101/file-uploads.git"
   },
   "author": "mikermcneil",
-  "license": ""
+  "license": "MIT"
 }
