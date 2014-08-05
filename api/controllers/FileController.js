@@ -29,6 +29,7 @@ module.exports = {
 
       // You can apply a file upload limit (in bytes)
       maxBytes: 1000000
+      
     }, function whenDone(err, uploadedFiles) {
       if (err) return res.serverError(err);
       else return res.json({
@@ -58,13 +59,12 @@ module.exports = {
     // Node defaults to 2 minutes.
     res.setTimeout(0);
 
-    var receiving = require('skipper-s3')({
+    req.file('avatar').upload({
+      adapter require('skipper-s3'),
       bucket: process.env.BUCKET,
       key: process.env.KEY,
       secret: process.env.SECRET
-    }).receive();
-
-    req.file('avatar').upload(receiving, function whenDone(err, uploadedFiles) {
+    }, function whenDone(err, uploadedFiles) {
       if (err) return res.serverError(err);
       else return res.json({
         files: uploadedFiles,
