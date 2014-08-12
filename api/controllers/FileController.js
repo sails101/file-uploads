@@ -60,7 +60,7 @@ module.exports = {
     res.setTimeout(0);
 
     req.file('avatar').upload({
-      adapter require('skipper-s3'),
+      adapter: require('skipper-s3'),
       bucket: process.env.BUCKET,
       key: process.env.KEY,
       secret: process.env.SECRET
