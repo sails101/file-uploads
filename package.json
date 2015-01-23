@@ -4,7 +4,7 @@
   "description": "How do I upload files in Sails?",
   "keywords": [],
   "dependencies": {
-    "sails": "~0.10.2",
+    "sails": "^0.11.0-rc8",
     "sails-disk": "~0.10.0",
     "rc": "~0.3.3",
     "include-all": "~0.1.3",

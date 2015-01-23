@@ -31,6 +31,39 @@ module.exports.routes = {
     view: 'homepage'
   },
 
+  // The EMAXBUFFER error protects against performance issues by timing out requests that are trying
+  // to upload files when your code is slow.
+  // ================================================================================================
+  //
+  // i.e. if the file upload is smaller than the default stream highWaterMark, it'll get paused using
+  // TCP backpressure.  This is good (it takes advantage of the power of streams2 to give your pre-processing
+  // code time to run).
+  // However, since this still consumes a small amount of memory, it is a potential performance issue and
+  // potentially even an attack vector.  That's why we have EMAXBUFFER.
+  // Use the configurable `maxTimeToBuffer` option to configure this timeout in ms (it's quite high by default)
+  //
+  // (note that EMAXBUFFER may be changed eventually-
+  //  for details see: https://github.com/balderdashy/skipper/blob/master/standalone/Upstream/Upstream.js#L70)
+  //
+  // Upload w/ artificial delay to demonstrate EMAXBUFFER (this will only happen if you upload a big file)
+  'post /file/do-slow-things-then-upload': [function (req, res, next){
+    setTimeout(function (){
+      // This route is here to provide a way to see how EMAXBUFFER errors work-
+      // you can only see this type of error if you have Skipper's debug mode enabled
+      // (try lifting this app w/ `DEBUG=skipper sails lift`)
+
+      // Why doesn't this trigger an error? Imagine your `maxTimeToBuffer` config is set to 1 second (default is higher than that, ~5s)
+      // That means for any upstream (e.g. `req.file("avatar")`) you have just one second to plug it into a receiver.
+      // Now imagine an attacker wants to hit you with a DoS attack- if you
+      next();
+    }, 5500);
+  },'FileController.upload']
+
+  // The ETIMEOUT error protects against DoS attacks by timing out requests that hit your file upload
+  // route, but are trying
+  // to upload files when your code is slow.
+  // ================================================================================================
+
 
   // Custom routes here...
 
