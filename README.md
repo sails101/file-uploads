@@ -2,14 +2,17 @@
 
 Example of using Sails to properly/safely stream file uploads to S3 and/or disk (esp. really big uploads).
 
+
+## Trying it out
+
 Clone this repo, `npm install`, then start the server with `sails lift`.
 
-To test a basic upload, check out:
+Then, to test a basic upload, check out the requests here:
+
+
  [![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/d79c7deb45ef3a476e5d)
 
-
-
-### Upload file(s) to disk
+#### Upload file(s) to disk
 
 `POST /file/upload`
  
@@ -19,7 +22,7 @@ See [`api/controllers/FileController.js`](https://github.com/sails101/file-uploa
 
 
 
-### Upload file(s) to S3
+#### Upload file(s) to S3
 
 `POST /file/s3upload`
 
