@@ -1,0 +1,6 @@
+{
+  "name": "file-uploads",
+  "description": "Upload file(s) using Sails/Skipper",
+  "logo": "https://pbs.twimg.com/profile_images/3668898945/3bf33a82d4b1624f6b94da4d9fe1eaeb.png",
+  "keywords": ["sails", "node", "skipper", "file-uploads"]
+}
