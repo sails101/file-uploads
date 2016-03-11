@@ -29,7 +29,7 @@ module.exports = {
 
       // You can apply a file upload limit (in bytes)
       maxBytes: 1000000
-      
+
     }, function whenDone(err, uploadedFiles) {
       if (err) return res.serverError(err);
       else return res.json({
@@ -80,7 +80,12 @@ module.exports = {
    * Download a file from the server's disk.
    */
   download: function (req, res) {
-    require('fs').createReadStream(req.param('path'))
+    var Path = require('path');
+    var fs = require('fs');
+
+    // If a relative path was provided, resolve it relative
+    // to the cwd (which is the top-level path of this sails app)
+    fs.createReadStream(Path.resolve(req.param('path')))
     .on('error', function (err) {
       return res.serverError(err);
     })
