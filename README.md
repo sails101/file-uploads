@@ -5,15 +5,11 @@ Example of using Sails to properly/safely stream file uploads to S3 and/or disk 
 
 ## Trying it out
 
-Clone this repo, `npm install`, then start the server with `sails lift`.
+Clone this repo, `npm install`, then start the server with `sails lift`. Or deploy it on Heroku with:
 
-> Or deploy it on Heroku:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
-
-
-Then...
 
 #### Upload file(s) to disk 
 
