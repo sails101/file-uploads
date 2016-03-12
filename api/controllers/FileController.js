@@ -34,7 +34,7 @@ module.exports = {
       if (err) return res.serverError(err);
       else return res.json({
         files: uploadedFiles,
-        textParams: req.params.all()
+        textParams: req.allParams()
       });
     });
   },
@@ -68,7 +68,7 @@ module.exports = {
       if (err) return res.serverError(err);
       else return res.json({
         files: uploadedFiles,
-        textParams: req.params.all()
+        textParams: req.allParams()
       });
     });
   },
