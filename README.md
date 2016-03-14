@@ -30,7 +30,7 @@ See [`api/controllers/FileController.js`](https://github.com/sails101/file-uploa
 
 `POST /file/s3upload`
 
-[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/d79c7deb45ef3a476e5d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/d79c7deb45ef3a476e5d)
 
 See [`api/controllers/FileController.js`](https://github.com/sails101/file-uploads/blob/master/api/controllers/FileController.js#L52).
 
